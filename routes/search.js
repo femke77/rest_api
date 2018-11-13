@@ -11,8 +11,8 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
-const Movie = require('../models/movie')
-const Show = require('../models/show')
+const {Movie} = require('../models/movie')
+const {Show} = require('../models/show')
  
 
 router.get('/', async (req, res) => {
