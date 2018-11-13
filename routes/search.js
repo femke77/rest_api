@@ -1,8 +1,8 @@
-//dev note: two or more awaits in a single method with sync code following are supported as of ES7, the .then is implied now
+//dev note: two or more awaits in a single method with sync code following are supported as of ES7, the .then is not explicitly required
 //ensure the latest version of nodejs if you work on this API
 
 //also: there are repeated shows in the db which I did not realize, and finally found with mongoshell, after thinking I had a bug
-//in this code for a while. If you are reading this I did not have time to clean up the database. 
+//in this code. If you are reading this I did not have time to clean up the database. 
 
 //why I skipped pagination here: pagination is necessary for large amounts of results. Here you will get a few titles at most, as that
 //is just how the movie/show industry is. They occasionally use the same name but not frequently enough that you would be overloaded
