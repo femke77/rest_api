@@ -18,12 +18,12 @@ router.get('/', async (req, res) => {
         .find({title: new RegExp('^' + title + '$', 'i')})
         .lean(true)
         .select("-description -_id -id")
-        .limit(20);
+        .limit(10);
     const show = await Show
         .find({title: new RegExp('^' + title + '$', 'i')})
         .lean(true)
         .select("-description -_id -id")
-        .limit(20);
+        .limit(10);
     let resultA =[], resultB = [];
     if ((movie === undefined || movie.length < 1) && (show === undefined || show.length < 1))
         return res.status(404).send("nothing found with that title");

@@ -6,8 +6,7 @@ const {Movie} = require('../models/movie');
 router.get('/', async (req, res) => {
     const movie = await Movie
         .find()
-        .sort({year: "ascending"})
-        .limit(20)
+        .sort({year: "ascending"});
     if (!movie) return res.status(404).send('Movie not found. Please verify id is correct.');
     res.send(movie);
 });
