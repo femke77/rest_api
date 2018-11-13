@@ -4,9 +4,6 @@
 //also: there are repeated shows in the db which I did not realize, and finally found with mongoshell, after thinking I had a bug
 //in this code. If you are reading this I did not have time to clean up the database. 
 
-//why I skipped pagination here: pagination is necessary for large amounts of results. Here you will get a few titles at most, as that
-//is just how the movie/show industry is. They occasionally use the same name but not frequently enough that you would be overloaded
-//with results.
  
 const mongoose = require('mongoose');
 const express = require('express');
@@ -20,11 +17,13 @@ router.get('/', async (req, res) => {
     const movie = await Movie
         .find({title: new RegExp('^' + title + '$', 'i')})
         .lean(true)
-        .select("-description -_id -id");
+        .select("-description -_id -id")
+        .limit(20);
     const show = await Show
         .find({title: new RegExp('^' + title + '$', 'i')})
         .lean(true)
-        .select("-description -_id -id");
+        .select("-description -_id -id")
+        .limit(20);
     let resultA =[], resultB = [];
     if ((movie === undefined || movie.length < 1) && (show === undefined || show.length < 1))
         return res.status(404).send("nothing found with that title");

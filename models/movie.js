@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePag = require('mongoose-paginate-v2');
 
 const Movie = mongoose.model('Movie', new mongoose.Schema({
   _id : Number,
