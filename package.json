@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "start-watch": "nodemon /index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engine": {
+    "node": "10.13.0"
   },
   "author": "",
   "license": "ISC",
