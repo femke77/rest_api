@@ -1,5 +1,4 @@
-//ES7 and latest version of nodejs support two awaits with syncronous code to follow. The .then is not explicitly required.
- 
+
 const express = require('express');
 const router = express.Router();
 const {Movie} = require('../models/movie')
@@ -7,7 +6,7 @@ const {Show} = require('../models/show')
 
 //returns a json object of all shows and/or movies matching the title (case-insensitive).
 //lean converts mongo doc into js object for manipulation. It will return empty array if nothing found,
-//therefore undefined is never an issue
+//therefore undefined objects are not an issue
 
 router.get('/', async (req, res) => {
     let title = req.query.title;  
@@ -23,18 +22,18 @@ router.get('/', async (req, res) => {
     if (movie.length < 1 && show.length < 1)
         return res.status(404).send("Nothing found with that title.");
     if (movie.length >= 1)   
-        movie = alterDBResult(movie, "movie");    
+        movie = alterDBResult(movie, "type", "movie");    
     if (show.length >= 1) 
-        show = alterDBResult(show, "show");      
+        show = alterDBResult(show, "type", "show");      
     res.send(movie.concat(show))   
 });
 
 //alters the js object dynamically to avoid repetative details in the database. 
 //tells user if result is movie or show
 
-function alterDBResult(object, value){
+function alterDBResult(object, key, value){
     object.map((o) => {
-        o.type = value
+        o[key] = value
         return o;
     })
     return object;

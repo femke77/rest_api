@@ -7,12 +7,14 @@ const {Movie} = require('../models/movie');
 
 router.get('/', async (req, res) => {
     let page = parseInt(req.query.page);
-    let offset = parseInt(req.query.offset)
+    let offset = parseInt(req.query.offset);
+    let sort = req.query.sort;   
     if (isNaN(offset) || offset > 100) offset = 20;
     const movie = await Movie
         .find()
         .skip((page - 1) * offset)
-        .limit(offset);
+        .limit(offset)
+        .sort(sort)
     if (!movie) return res.status(404).send('Movie not found. Please verify id is correct.');
     res.send(movie);
 });
@@ -23,7 +25,7 @@ router.get('/:id', async (req, res) => {
     let id = parseInt(req.params.id);
     if (isNaN(id)) return res.status(400).send("Invalid id type. A valid id is numeric.");
     const movie = await Movie
-        .findOne({id: id});
+       .findOne({id: id});
     if (!movie) return res.status(404).send('Movie not found. Please verify id is correct.');
     res.send(movie);
 });
