@@ -8,7 +8,7 @@ const {Movie} = require('../models/movie');
 router.get('/', async (req, res) => {
     let page = parseInt(req.query.page);
     let offset = parseInt(req.query.offset)
-    if (isNaN(offset)) offset = 20;
+    if (isNaN(offset) || offset > 100) offset = 20;
     const movie = await Movie
         .find()
         .skip((page - 1) * offset)
