@@ -5,8 +5,9 @@ const router = express.Router();
 const {Movie} = require('../models/movie')
 const {Show} = require('../models/show')     
 
-//returns a json object of all shows and/or movies matching the title (case-insensitive)
-//lean converts mongo doc into js object for manipulation. It will return empty array if nothing found.
+//returns a json object of all shows and/or movies matching the title (case-insensitive).
+//lean converts mongo doc into js object for manipulation. It will return empty array if nothing found,
+//therefore undefined is never an issue
 
 router.get('/', async (req, res) => {
     let title = req.query.title;  
@@ -28,7 +29,8 @@ router.get('/', async (req, res) => {
     res.send(movie.concat(show))   
 });
 
-//alters the js object dynamically to avoid repetative details in the database
+//alters the js object dynamically to avoid repetative details in the database. 
+//tells user if result is movie or show
 
 function alterDBResult(object, value){
     object.map((o) => {
