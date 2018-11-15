@@ -1,46 +1,41 @@
-//dev note: two or more awaits in a single method with sync code following are supported as of ES7, the .then is not explicitly required
-//ensure the latest version of nodejs if you work on this API
-
-//also: there are repeated shows in the db which I did not realize, and finally found with mongoshell, after thinking I had a bug
-//in this code. If you are reading this I did not have time to clean up the database. 
-
+//ES7 and latest version of nodejs support two awaits with syncronous code to follow. The .then is not explicitly required.
  
-const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const {Movie} = require('../models/movie')
-const {Show} = require('../models/show')
- 
+const {Show} = require('../models/show')     
+
+//returns a json object of all shows and/or movies matching the title (case-insensitive)
+//lean converts mongo doc into js object for manipulation. It will return empty array if nothing found.
 
 router.get('/', async (req, res) => {
-    const title = req.query.title;  
-    const movie = await Movie
-        .find({title: new RegExp('^' + title + '$', 'i')})
+    let title = req.query.title;  
+    let regex = new RegExp('^' + title + '$', 'i');
+    let movie = await Movie
+        .find({title: regex})
         .lean(true)
         .select("-description -_id -id")
-        .limit(10);
-    const show = await Show
-        .find({title: new RegExp('^' + title + '$', 'i')})
+    let show = await Show
+        .find({title: regex})
         .lean(true)
         .select("-description -_id -id")
-        .limit(10);
-    let resultA =[], resultB = [];
-    if ((movie === undefined || movie.length < 1) && (show === undefined || show.length < 1))
-        return res.status(404).send("nothing found with that title");
-    if (movie !== undefined && movie.length >=1)  {  
-        resultA= movie.map( (o) => {
-        o.type = "movie";
-        return  o;
-    })};
-    if (show !== undefined && show.length >=1) {
-        resultB = show.map( (o) => {
-        o.type = "show"
-        return o;
-    })};   
-    let result = resultA.concat(resultB)
-    res.send(result)   
+    if (movie.length < 1 && show.length < 1)
+        return res.status(404).send("Nothing found with that title.");
+    if (movie.length >= 1)   
+        movie = alterDBResult(movie, "movie");    
+    if (show.length >= 1) 
+        show = alterDBResult(show, "show");      
+    res.send(movie.concat(show))   
 });
 
+//alters the js object dynamically to avoid repetative details in the database
 
+function alterDBResult(object, value){
+    object.map((o) => {
+        o.type = value
+        return o;
+    })
+    return object;
+}
 
 module.exports = router;
