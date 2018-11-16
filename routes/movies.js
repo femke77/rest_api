@@ -18,12 +18,12 @@ router.get('/', async (req, res) => {
     if (!movie) return res.status(404).send('Movie not found. Please verify id is correct.');
     res.send(movie);
 });
-
+//
 //returns one movie matching id in request parameter or not found error
 
 router.get('/:id', async (req, res) => {
     let id = parseInt(req.params.id);
-    if (isNaN(id)) return res.status(400).send("Invalid id type. A valid id is numeric.");
+    //if (isNaN(id)) return res.status(400).send("Invalid id type. A valid id is numeric.");
     const movie = await Movie
        .findOne({id: id});
     if (!movie) return res.status(404).send('Movie not found. Please verify id is correct.');

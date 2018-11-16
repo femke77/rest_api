@@ -9,7 +9,5 @@ module.exports = function(app) {
   app.use('/api/movies', movies);
   app.use('/api/shows', shows);
   app.use('/api/search', search);
-
-  
   app.use(error);
 }

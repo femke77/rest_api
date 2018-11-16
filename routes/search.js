@@ -8,15 +8,14 @@ const {Show} = require('../models/show')
 //lean converts mongo doc into js object for manipulation. It will return empty array if nothing found,
 //therefore undefined objects are not an issue
 
-router.get('/', async (req, res) => {
-    let title = req.query.title;  
-    let regex = new RegExp('^' + title + '$', 'i');
+router.get('/', async (req, res) => {  
+    let movieTitle= new RegExp('^' + req.query.title + '$', 'i');
     let movie = await Movie
-        .find({title: regex})
+        .find({title: movieTitle})
         .lean(true)
         .select("-description -_id -id")
     let show = await Show
-        .find({title: regex})
+        .find({title: movieTitle})
         .lean(true)
         .select("-description -_id -id")
     if (movie.length < 1 && show.length < 1)
@@ -29,7 +28,6 @@ router.get('/', async (req, res) => {
 });
 
 //alters the js object dynamically to avoid repetative details in the database. 
-//tells user if result is movie or show
 
 function alterDBResult(object, key, value){
     object.map((o) => {
