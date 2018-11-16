@@ -162,3 +162,5 @@
 {"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-16T00:26:57.116Z"}
 {"level":"info","message":"Listening on port 5000...","timestamp":"2018-11-16T00:27:41.815Z"}
 {"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-16T00:27:42.868Z"}
+{"level":"info","message":"Listening on port 5000...","timestamp":"2018-11-16T06:31:05.248Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-16T06:31:06.357Z"}

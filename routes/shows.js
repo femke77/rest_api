@@ -1,7 +1,6 @@
 const express = require('express');
-const {Show} = require('../models/show');
+const {Show, validate} = require('../models/show');
 const router = express.Router();
-const Joi = require('joi');
 
 router.get('/', async (req, res) => {
     let page = parseInt(req.query.page);
@@ -27,6 +26,18 @@ router.get('/:id', async (req, res) => {
 });
 
 
+router.post('/', async(req,res) => {
+    const {error} = validate(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+    const show = new Show({
+        id: req.body.id,
+        title: req.body.title,
+        year: req.body.year,
+        description: req.body.description
+    });
+    await show.save();
+    res.send(show);
+});
 
 
 module.exports = router;
