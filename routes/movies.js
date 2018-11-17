@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {Movie, validate} = require('../models/movie');
+const validator = require('../middleware/validate');
 
 
 // returns all movies with pagination due to size of result pool
@@ -30,11 +31,9 @@ router.get('/:id', async (req, res) => {
     res.send(movie);
 });
 
-
+//TODO put your validate middleware over posts
 
 router.post('/', async(req,res) => {
-    const {error} = validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
     const movie = new Movie({
         id: req.body.id,
         title: req.body.title,

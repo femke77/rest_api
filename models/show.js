@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const Show = mongoose.model('Show', new mongoose.Schema({
-  _id : Number,
   id: {
     type: Number,
     required: true
@@ -11,7 +10,7 @@ const Show = mongoose.model('Show', new mongoose.Schema({
     type: String,
     required: true,
     trim: true, 
-    minlength: 5,
+    minlength: 1,
     maxlength: 255
   },
   year: { 
@@ -25,7 +24,7 @@ const Show = mongoose.model('Show', new mongoose.Schema({
     minlength: 0,
     maxlength: 1024
   } 
-}, {_id: false }));
+}));
 
 
 function validateShow(show){

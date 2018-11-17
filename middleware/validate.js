@@ -1,3 +1,5 @@
+//for validating the joi schemas cleanly
+
 
 module.exports = (validator) => {
     return (req, res, next) => {

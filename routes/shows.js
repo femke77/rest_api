@@ -1,6 +1,9 @@
+//TODO able to post >1 movie with same id. Need to change that and make it auto-increment so user doesn't deal with id
+
 const express = require('express');
 const {Show, validate} = require('../models/show');
 const router = express.Router();
+const validator = require('../middleware/validate');
 
 router.get('/', async (req, res) => {
     let page = parseInt(req.query.page);
@@ -26,9 +29,7 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.post('/', async(req,res) => {
-    const {error} = validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+router.post('/', validator(validate), async (req,res) => {
     const show = new Show({
         id: req.body.id,
         title: req.body.title,
