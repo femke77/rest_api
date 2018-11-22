@@ -1,3 +1,6 @@
+//here we catch uncaught exceptions. Unhandled rejections are caught with process and thrown as exception
+//because winstom is lacking a unhandled promise function
+
 const winston = require('winston');
 require('express-async-errors');
 

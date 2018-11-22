@@ -1,5 +1,4 @@
-//for validating the joi schemas cleanly
-
+//for validating the joi schemas cleanly without repeating the error code over each method
 
 module.exports = (validator) => {
     return (req, res, next) => {

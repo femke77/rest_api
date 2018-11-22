@@ -8,7 +8,7 @@ const Movie = mongoose.model('Movie', new mongoose.Schema({
   },
   title: {
     type: String,
-    required: true,
+
     trim: false, 
     minlength: 1,
     maxlength: 255

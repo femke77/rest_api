@@ -4,7 +4,7 @@ const {Movie, validate} = require('../models/movie');
 const validator = require('../middleware/validate');
 
 
-// returns all movies with pagination due to size of result pool
+// returns all movies with pagination due to size of result pool. Offset is adjustable but only to 100/page
 
 router.get('/', async (req, res) => {
     let page = parseInt(req.query.page);
@@ -31,9 +31,9 @@ router.get('/:id', async (req, res) => {
     res.send(movie);
 });
 
-//TODO put your validate middleware over posts
+//adds a new movie
 
-router.post('/', async(req,res) => {
+router.post('/', validator(validate), async(req,res) => {
     const movie = new Movie({
         id: req.body.id,
         title: req.body.title,
@@ -43,6 +43,18 @@ router.post('/', async(req,res) => {
     await movie.save();
     res.send(movie);
 });
+
+//deletes a movie by id
+
+router.delete('/:id',  async(req, res) => {
+    let movie_id = parseInt(req.params.id);
+    if (isNaN(movie_id)) return res.status(400).send("Invalid id type. A valid id is numeric.");
+    const movie = await Movie.findOneAndRemove({id: movie_id});
+    if (!movie) return res.status(404).send('Movie not found. Please verify id is correct.');
+    res.send(movie);
+    
+});
+
 
 
 module.exports = router;

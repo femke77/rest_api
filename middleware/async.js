@@ -1,7 +1,7 @@
 // This module allows for removal of repetative try/catch blocks over all the async code. 
-// this module is replaced by express-async-errors but that is still in testing so remains in project
+// this module is replaced by express-async-errors!
 
-module.exports = function (handler) {
+module.exports =  (handler) => {
     return async (req, res, next) => {
       try {
         await handler(req, res);
