@@ -3,7 +3,6 @@ const router = express.Router();
 const {Movie, validate} = require('../models/movie');
 const validator = require('../middleware/validate');
 
-
 // returns all movies with pagination due to size of result pool. Offset is adjustable but only to 100/page
 
 router.get('/', async (req, res) => {

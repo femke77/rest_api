@@ -17,3 +17,11 @@
 {"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-22T04:54:57.146Z"}
 {"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-22T04:55:38.981Z"}
 {"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-22T04:55:40.056Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-22T05:28:03.741Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-22T05:28:06.913Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-22T05:28:07.975Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-22T05:41:10.260Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-22T05:41:11.428Z"}
+{"message":"Cannot set headers after they are sent to the client","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (C:\\Users\\megan\\documents\\rest_api\\node_modules\\express\\lib\\response.js:767:10)\n    at ServerResponse.send (C:\\Users\\megan\\documents\\rest_api\\node_modules\\express\\lib\\response.js:170:12)\n    at router.delete (C:\\Users\\megan\\documents\\rest_api\\routes\\movies.js:52:34)\n    at process._tickCallback (internal/process/next_tick.js:68:7)","level":"error","timestamp":"2018-11-22T05:42:15.307Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-22T05:45:58.745Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-22T05:45:59.868Z"}
