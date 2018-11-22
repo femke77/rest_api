@@ -1,3 +1,5 @@
+//the routes and the middleware to use
+
 const express = require('express');
 const movies = require('../routes/movies');
 const error = require('../middleware/error');
@@ -10,6 +12,5 @@ module.exports = function(app) {
   app.use('/api/movies', movies);
   app.use('/api/shows', shows);
   app.use('/api/search', search);
-  
   app.use(error);
 }

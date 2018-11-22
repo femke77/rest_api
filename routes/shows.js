@@ -41,9 +41,9 @@ router.post('/', validator(validate), async (req,res) => {
 });
 
 router.delete('/:id',  async(req, res) => {
-    let show_id = parseInt(req.params.id);
-    if (isNaN(show_id)) return res.status(400).send("Invalid id type. A valid id is numeric.");
-    const show = await Show.findOneAndRemove({id: show_id});
+    let showId= parseInt(req.params.id);
+    if (isNaN(showId)) return res.status(400).send("Invalid id type. A valid id is numeric.");
+    const show = await Show.findOneAndRemove({id: showId});
     if (!show) return res.status(404).send('Show not found. Please verify id is correct.');
     res.send(show);
     
