@@ -43,6 +43,22 @@ router.post('/', validator(validate), async(req,res) => {
     res.send(movie);
 });
 
+//updates a document by id
+
+router.put('/:id', validator(validate), async (req, res) => {
+    let movieId = parseInt(req.params.id);
+    if (isNaN(movieId)) return res.status(400).send("Invalid id type. A valid id is numeric.");
+    const movie = await Movie.findOneAndUpdate({id: movieId}, 
+        {        
+            title: req.body.title,
+            year: req.body.year,
+            description: req.body.description           
+        }, {new: true, runValidators: true});
+    if (!movie) return res.status(404).send('Movie not found. Please verify id is correct.');
+    res.send(movie);
+});
+
+
 //deletes a movie by id
 
 router.delete('/:id',  async(req, res) => {

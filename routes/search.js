@@ -11,10 +11,10 @@ const {Show} = require('../models/show')
 /*
     following returns a json object of all shows and/or movies matching the title (case-insensitive).
     lean converts mongo doc into js object for manipulation. It will return empty array if nothing found,
-    therefore undefined objects in movie or show are not an issue
+    therefore undefined objects in movie or show are not an issue. 
 
     REST check: Is this 'get' indempotent? yes. you can refresh this all you like and it will always return the same behavior. 
-    the database gets current data, and its only by that result that we add the type to the json on a temporary basis. 
+    the database gets current movie/show data, and its only by that result that we add the type to the json on a temporary basis. 
     Is this safe? yes. this will only retrieve data. 
     Can we be SURE that the movie object does not somehow grow with reloads? 'let' ensures a fresh binding. 
 */

@@ -55,3 +55,26 @@
 {"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-22T08:29:47.942Z"}
 {"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-22T08:29:53.658Z"}
 {"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-22T08:29:54.712Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T05:37:49.854Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T05:37:50.909Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T05:41:41.867Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T05:41:42.935Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T05:44:51.872Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T05:44:52.965Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T05:48:32.676Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T05:48:33.737Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T05:50:28.933Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T05:50:30.002Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T05:54:51.505Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T05:54:52.569Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T05:57:42.320Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T05:57:43.384Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T05:59:54.255Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T05:59:55.314Z"}
+{"message":"Unexpected token d in JSON at position 45","stack":"SyntaxError: Unexpected token d in JSON at position 45\n    at JSON.parse (<anonymous>)\n    at parse (C:\\Users\\megan\\documents\\rest_api\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at C:\\Users\\megan\\documents\\rest_api\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (C:\\Users\\megan\\documents\\rest_api\\node_modules\\raw-body\\index.js:224:16)\n    at done (C:\\Users\\megan\\documents\\rest_api\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (C:\\Users\\megan\\documents\\rest_api\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:182:13)\n    at endReadableNT (_stream_readable.js:1094:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)","expose":true,"statusCode":400,"status":400,"body":"{\n\t\"id\": 1003,\n\t\"title\": \"Mad Men\",\n\t\"year\": dd,\n\t\"description\": \"about a group of advertising execs in New york in the 1950's\"\n}","type":"entity.parse.failed","level":"error","timestamp":"2018-11-26T06:00:33.790Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T06:03:10.256Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T06:03:11.341Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T06:05:32.101Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T06:05:33.170Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-11-26T06:06:26.587Z"}
+{"level":"info","message":"Connected to mongodb://localhost/movies_shows...","timestamp":"2018-11-26T06:06:36.096Z"}

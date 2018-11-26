@@ -1,4 +1,4 @@
-//TODO able to post >1 movie with same id. Need to change that and make it auto-increment so user doesn't deal with id
+//TODO able to post >1 show with same id. Need to change that and make it auto-increment so user doesn't deal with id
 //TODO "show not found" appearing repeatedly. Refactor. 
 
 const express = require('express');
@@ -37,6 +37,21 @@ router.post('/', validator(validate), async (req,res) => {
         description: req.body.description
     });
     await show.save();
+    res.send(show);
+});
+
+//updates a document by id
+
+router.put('/:id', validator(validate), async (req, res) => {
+    let showId = parseInt(req.params.id);
+    if (isNaN(showId)) return res.status(400).send("Invalid id type. A valid id is numeric.");
+    const show = await Show.findOneAndUpdate({id: showId}, 
+        {        
+            title: req.body.title,
+            year: req.body.year,
+            description: req.body.description           
+        }, {new: true, runValidators: true});
+    if (!show) return res.status(404).send('Show not found. Please verify id is correct.');
     res.send(show);
 });
 
