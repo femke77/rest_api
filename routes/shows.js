@@ -1,6 +1,3 @@
-//TODO able to post >1 show with same id. Need to change that and make it auto-increment so user doesn't deal with id
-//TODO "show not found" appearing repeatedly. Refactor. 
-
 const express = require('express');
 const {Show, validate} = require('../models/show');
 const router = express.Router();
